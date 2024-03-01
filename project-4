@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box">
+            <h1 id="color_Code">#fff</h1>
+            <button id="btn">
+                CLICK ME
+            </button>
+        </div>
+    </div>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+
+        * {
+            font-family: "Madimi One", sans-serif;
+            font-weight: 400;
+
+            font-style: normal;
+        }
+
+        .container {
+            /* border:solid red; */
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        body {
+            transition: 0.002s
+        }
+
+        .box {
+            border: solid black;
+            height: 200px;
+            width: 400px;
+            /* display:flex; */
+            /* justify-content: center; */
+            /* align-items: center; */
+            text-align: center;
+            border-radius: 20px;
+            background-color: white;
+        }
+
+        button {
+            width: 100%;
+            height: 40px;
+            color: white;
+            background-color: black;
+            border-radius: 8px;
+        }
+    </style>
+    <script>
+        function getColor() {
+            const randomNumber = Math.floor(Math.random() * 16777215);
+            const randomCode = "#" + randomNumber.toString(16);
+            document.body.style.backgroundColor = randomCode;
+            document.getElementById("color_Code").innerText = randomCode;
+
+            navigator.clipboard.writeText(randomCode)
+        }
+        document.getElementById("btn").addEventListener(
+            "click", getColor)
+
+        getColor();
+
+    </script>
+</body>
+
+</html>
